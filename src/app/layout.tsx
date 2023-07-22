@@ -1,3 +1,5 @@
+import "../index.css";
+
 import type { LayoutProps } from "../types";
 
 const Layout = ({ children }: LayoutProps) => (
