@@ -5,20 +5,37 @@
   "scripts": {
     "build": "echo build",
     "commitlint": "commitlint",
+    "commitlint:edit": "commitlint --edit",
+    "db:branch": "sh ./scripts/db/branch.sh",
+    "db:create": "sh ./scripts/db/create.sh",
+    "db:dev": "sh ./scripts/db/dev.sh",
+    "dev": "pnpm db:dev",
     "durksteedjr": "durksteedjr",
+    "durksteedjr:setup": "durksteedjr setup",
     "eslint": "eslint",
+    "eslint:lint": "eslint --fix './**/*.{js,json,jsx,ts,tsx,yaml}'",
     "husky": "husky",
-    "husky:commitlint": "commitlint --edit",
-    "husky:lint-staged": "lint-staged",
+    "husky:commit-msg": "pnpm commitlint:edit",
+    "husky:install": "husky install",
+    "husky:pre-commit": "pnpm lint-staged",
     "lint": "pnpm lint:eslint && pnpm lint:prettier",
     "lint-staged": "lint-staged",
-    "lint:eslint": "eslint --fix './**/*.{js,json,jsx,ts,tsx,yaml}'",
-    "lint:prettier": "prettier --write ./",
-    "prepare": "pnpm prepare:husky",
-    "prepare:husky": "husky install",
+    "lint:eslint": "pnpm eslint:lint",
+    "lint:prettier": "pnpm prettier:lint",
+    "prepare": "pnpm prepare:husky && pnpm prisma:generate",
+    "prepare:husky": "pnpm husky:install",
+    "prepare:prisma": "pnpm prisma:generate",
     "prettier": "prettier",
-    "test:typecheck": "tsc --noEmit",
-    "tsc": "tsc"
+    "prettier:lint": "prettier --write ./",
+    "prisma": "prisma",
+    "prisma:generate": "pnpm prisma generate",
+    "prisma:init": "pnpm prisma init",
+    "prisma:push": "pnpm db:dev & sleep 5 && pnpm prisma db push",
+    "tsc": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@prisma/client": "5.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
@@ -36,6 +53,7 @@
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
     "prettier-plugin-packagejson": "^2.4.5",
+    "prisma": "^5.0.0",
     "typescript": "^5.1.6"
   },
   "pnpm": {
