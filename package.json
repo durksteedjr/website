@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "pnpm build:contentlayer && build:next",
+    "build": "pnpm build:contentlayer && pnpm build:next",
     "build:contentlayer": "pnpm contentlayer:build",
     "build:next": "pnpm next:build",
     "commitlint": "commitlint",
