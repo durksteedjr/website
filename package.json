@@ -1,5 +1,48 @@
 {
   "name": "website",
   "version": "0.0.0",
-  "private": true
+  "private": true,
+  "scripts": {
+    "build": "echo build",
+    "commitlint": "commitlint",
+    "durksteedjr": "durksteedjr",
+    "eslint": "eslint",
+    "husky": "husky",
+    "husky:commitlint": "commitlint --edit",
+    "husky:lint-staged": "lint-staged",
+    "lint": "pnpm lint:eslint && pnpm lint:prettier",
+    "lint-staged": "lint-staged",
+    "lint:eslint": "eslint --fix './**/*.{js,json,jsx,ts,tsx,yaml}'",
+    "lint:prettier": "prettier --write ./",
+    "prepare": "pnpm prepare:husky",
+    "prepare:husky": "husky install",
+    "prettier": "prettier",
+    "test:typecheck": "tsc --noEmit",
+    "tsc": "tsc"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "@durksteedjr/cli": "^1.1.2",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "eslint-plugin-yaml": "^0.5.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0",
+    "prettier-plugin-packagejson": "^2.4.5",
+    "typescript": "^5.1.6"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "@typescript-eslint/eslint-plugin": "^6.0.0"
+      }
+    }
+  }
 }
