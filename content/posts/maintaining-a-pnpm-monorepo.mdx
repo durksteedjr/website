@@ -1,0 +1,66 @@
+---
+date: "07/21/2023"
+description: "Public CLI, colors, and UI library maintained within a PNPM monorepo."
+title: "Working with a PNPM Monorepo"
+---
+
+# {frontmatter?.title}
+
+Maintaining a public CLI, colors, and UI library has been significantly better after migrating to a PNPM monorepo.
+
+[Source PNPM Monorepo](https://github.com/durksteedjr/packages).
+
+## PNPM Monorepo
+
+Because my public NPM packages are tightly integrated, keeping them co-located within a single repository greatly simplifies maintenance. PNPM has built-in support for monorepos with [PNPM Workspaces](https://pnpm.io/workspaces).
+
+## Turborepo
+
+[Turborepo](https://turbo.build) is an incremental build system and performant caching solution for JavaScript and TypeScript monorepos. Combined with PNPM, my monorepo is capable of incrementally caching `package.json` scripts while running in parallel execution, providing an incredibly smooth developer experience.
+
+For example, consider the following Turborepo configuration:
+
+```json
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    }
+    // ...
+  }
+}
+```
+
+Turborepo can now run `build` for all monorepo packages in parallel execution while incrementally caching the output files saved in `dist/**`:
+
+```sh
+pnpm turbo run build
+```
+
+## Changesets
+
+[Changesets](https://github.com/changesets/changesets) manages package changelogs, publishing, and versioning. The [Changesets Bot](https://github.com/apps/changeset-bot) combined with GitHub Actions automates the NPM workflow for all public packages in my PNPM monorepo.
+
+## Structure
+
+Below is an outline of my PNPM monorepo's structure:
+
+```md
+├── apps
+│ ├── cli
+│ ├── colors
+│ ├── ui
+├── internal
+| ├── sdk
+│ ├── tsconfig
+├── packages
+| ├── cli
+│ ├── colors
+└─└── ui
+```
+
+## Source
+
+[Source PNPM Monorepo](https://github.com/durksteedjr/packages).

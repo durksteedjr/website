@@ -1,0 +1,115 @@
+---
+date: "05/24/2023"
+description: "A look at the tech stack, design system, and content for this website."
+title: "How I Built This Website"
+---
+
+# {frontmatter?.title}
+
+Below is a look at the tech stack, design system, and content for this website.
+
+## Tech Stack
+
+### TypeScript
+
+[TypeScript](https://www.typescriptlang.org) is a statically typed superset of JavaScript providing additional features such as static type checking, better tooling, and enhanced developer experience. I personally enjoy using TypeScript because it greatly speeds up productivity, helps catch potential errors during development, and makes code more maintainable.
+
+Consider the following JavaScript snippet:
+
+```js
+const logs = [
+  { date: "01/01/23", message: "Happy New Year!" },
+  { date: "01/01/23", message: "The Year is now 2023." }
+];
+
+logs.forEach((log) =>
+  // "messge" does not exist...
+  console.log(log.messge);
+);
+```
+
+Until running this code, there would be no way to see the breaking typo. With properly defined TypeScript types; however, this error can be easily detected during development:
+
+```ts
+type Log {
+  date: string;
+  message: string;
+};
+
+const logs: Log[] = [
+  { date: "01/01/23", message: "Happy New Year!" },
+  { date: "01/01/23", message: "The Year is now 2023." }
+];
+
+logs.forEach((log) =>
+  // Property "messge" does not exist on type "Log".
+  console.log(log.messge);
+);
+```
+
+### React
+
+[React.js](https://react.dev) is the preeminent JavaScript UI library. I like JavaScript frameworks such as React.js for their component-based architecture and modularity. While considering [Astro.js](https://astro.build/) and [Solid.js](https://www.solidjs.com), I ultimately stuck with React.js because I know it best and it has an extensive ecosystem of libraries.
+
+### Next.js
+
+[Next.js](https://nextjs.org) is a popular framework built on top of React.js. Next.js offers built in web optimizations, a file-based router, and most importantly server-side rendering and static site generation. As of version 13, it even supports React.js's new [Server Components](https://nextjs.org/docs/getting-started/react-essentials#server-components). In addition, Next.js has tremendous TypeScript support. I chose Next.js because I can build with React.js while confident this website will have great performance and SEO optimization.
+
+### PlanetScale
+
+Tracking the view counts for each post requires a database connection. [PlanetScale](https://planetscale.com) is a serverless MySQL platform and managed solution for deploying, maintaining, and scaling databases. With PlanetScale, databases can be branched like code in a Git repository while offering isolated database copies to develop and test schema changes.
+
+### Prisma
+
+[Prisma](https://www.prisma.io) is an open-source Object-Relational Mapping (ORM) for databases. Prisma greatly simplifies database access and management through a type-safe API generated from user-defined models. Combined with PlanetScale, Prisma makes managing a MySQL database incredibly intuitive.
+
+Consider this Prisma model:
+
+```js
+model Post {
+  id    String @id @default(cuid())
+  slug  String @unique
+  views Int    @default(0)
+}
+```
+
+Now, thanks to Prisma, posts can be managed with proper type-safety:
+
+```ts
+// Get all posts
+await prisma.post.findMany();
+```
+
+```ts
+// Update a post's views
+await prisma.post.update({
+  data: {
+    views: { increment: 1 }
+  },
+  where: { id: "id" }
+});
+```
+
+### ESLint and Prettier
+
+Lastly, [ESLint](https://eslint.org) is a static code analysis tool that helps enforce consisten code syntax and identify potential errors. [Prettier](https://prettier.io) is an opinionated code formatter that automatically formats code to a predefined set of rules. Together, they provide a powerful combination for code consistency, maintainability, and readability. A [GitHub Actions](https://github.com/ddddurk/website/blob/main/.github/workflows/status.yaml) workflow ensures all code reaching production has been properly formatted and adheres to a common syntax within the [PNPM Workspace](https://pnpm.io/workspaces) containing this website.
+
+## Design System
+
+### Tailwind CSS
+
+[Tailwind CSS](https://tailwindcss.com) is a very popular utility-first CSS framework. Tailwind CSS comes with a beautiful, extensive design system for creating comprehensive interfaces. In addition, Tailwind CSS works well with the new React.js Server Components.
+
+### @durksteedjr
+
+Although Tailwind CSS comes with a predefined set of colors, I am using my [personal color scales (@durksteedjr/colors)](https://colors.durksteedjr.com). In addition, I am using reusable React.js components from my [personal UI library (@durksteedjr/ui)](https://ui.durksteedjr.com).
+
+## Content
+
+### MDX
+
+[MDX](https://mdxjs.com) combines Markdown and JSX enabling React.js components within markdown while providing a seamless integration between code and content.
+
+### ContentLayer
+
+[ContentLayer](https://www.contentlayer.dev) is a content SDK that validates and transforms content into type-safe JSON data. ContentLayer is perfect for integrating MDX with TypeScript and Next.js. In addition, ContentLayer automatically handles Markdown plugins for additional features such as [heading slugs](https://github.com/rehypejs/rehype-slug) and [syntax highlighting](https://rehype-pretty-code.netlify.app). I chose ContentLayer because it perfectly integrates with Next.js's file-based router and static site generation.
