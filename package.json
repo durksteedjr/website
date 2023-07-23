@@ -36,7 +36,7 @@
     "start": "pnpm next:start",
     "tsc": "tsc",
     "tsc:typecheck": "pnpm tsc --noEmit",
-    "typecheck": "pnpm tsc:typecheck"
+    "typecheck": "pnpm contentlayer:build && pnpm tsc:typecheck"
   },
   "dependencies": {
     "@durksteedjr/ui": "^2.0.0",
