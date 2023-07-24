@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const description = "Catholic, Holistic";
-const title = "Durk Steed Jr.";
+const title = "Durk Steed Jr. (@durksteedjr)";
 const url = "https://durksteedjr.com";
 
 export const metadata: Metadata = {
