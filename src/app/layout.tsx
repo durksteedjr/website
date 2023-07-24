@@ -93,8 +93,13 @@ const Layout = ({ children }: LayoutProps) => (
               <footer>
                 <Stack className="space-y-6 md:space-y-8">
                   <Grid className="grid-cols-2 gap-4 md:grid-cols-4">
+                    <LinkBadge
+                      href={links.contact.href}
+                      isOutlineArrowUpRight
+                    >
+                      {links.contact.text}
+                    </LinkBadge>
                     {[
-                      links.contact,
                       links.github,
                       links.instagram,
                       links.linkedIn
