@@ -39,7 +39,7 @@
     "typecheck": "pnpm contentlayer:build && pnpm tsc:typecheck"
   },
   "dependencies": {
-    "@durksteedjr/ui": "^2.0.0",
+    "@durksteedjr/ui": "^2.0.1",
     "@prisma/client": "5.0.0",
     "@tanstack/react-query": "^4.32.0",
     "clsx": "^2.0.0",

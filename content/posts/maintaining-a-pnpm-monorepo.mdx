@@ -1,6 +1,6 @@
 ---
 date: "07/21/2023"
-description: "Public CLI, colors, and UI library maintained within a PNPM monorepo."
+description: "Public CLI, colors, and UI library maintained with a PNPM monorepo."
 title: "Working with a PNPM Monorepo"
 ---
 
@@ -16,7 +16,7 @@ Because my public NPM packages are tightly integrated, keeping them co-located w
 
 ## Turborepo
 
-[Turborepo](https://turbo.build) is an incremental build system and performant caching solution for JavaScript and TypeScript monorepos. Combined with PNPM, my monorepo is capable of incrementally caching `package.json` scripts while running in parallel execution, providing an incredibly smooth developer experience.
+[Turborepo](https://turbo.build) is an incremental build system and performant caching solution for JavaScript and TypeScript monorepos. It incrementally caches `package.json` scripts while running them in parallel execution, providing an incredibly smooth developer experience.
 
 For example, consider the following Turborepo configuration:
 
@@ -33,7 +33,7 @@ For example, consider the following Turborepo configuration:
 }
 ```
 
-Turborepo can now run `build` for all monorepo packages in parallel execution while incrementally caching the output files saved in `dist/**`:
+Turborepo can now run `build` in parallel execution for all packages while incrementally caching the `dist/**` output files:
 
 ```sh
 pnpm turbo run build
@@ -41,7 +41,7 @@ pnpm turbo run build
 
 ## Changesets
 
-[Changesets](https://github.com/changesets/changesets) manages package changelogs, publishing, and versioning. The [Changesets Bot](https://github.com/apps/changeset-bot) combined with GitHub Actions automates the NPM workflow for all public packages in my PNPM monorepo.
+[Changesets](https://github.com/changesets/changesets) manages package changelogs, publishing, and versioning. I use the [Changesets Bot](https://github.com/apps/changeset-bot) with GitHub Actions to automate the NPM workflow for all public packages in the monorepo.
 
 ## Structure
 

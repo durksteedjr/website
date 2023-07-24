@@ -22,8 +22,10 @@ import {
   QueryClientProvider,
   Text
 } from "../components";
-import { links } from "../lib";
+import { links, metadata as libMetadata } from "../lib";
 import type { LayoutProps } from "../types";
+
+export const metadata = libMetadata;
 
 const nunitoSans = Nunito_Sans({
   display: "swap",
