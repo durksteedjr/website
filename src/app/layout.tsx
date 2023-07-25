@@ -40,7 +40,7 @@ const Layout = ({ children }: LayoutProps) => (
         <Wrapper>
           <OverlayGradient />
           <OverlayGrid />
-          <Stack className="min-h-screen px-6 py-12 md:py-24">
+          <Stack className="min-h-screen px-6 py-12 md:py-20">
             <Container>
               <header>
                 <Stack>
@@ -87,7 +87,7 @@ const Layout = ({ children }: LayoutProps) => (
                   </LinkBadge>
                 </Flex>
               </nav>
-              <Spacer className="mb-24 mt-16 md:mb-32 md:mt-24">
+              <Spacer className="mb-32 mt-16 md:mb-40 md:mt-24">
                 <main>{children}</main>
               </Spacer>
               <footer>

@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@durksteedjr/ui':
-    specifier: ^2.0.1
-    version: 2.0.1(@opentelemetry/api@1.1.0)(react@18.2.0)
+    specifier: ^2.0.2
+    version: 2.0.2(@opentelemetry/api@1.1.0)(react@18.2.0)
   '@prisma/client':
     specifier: 5.0.0
     version: 5.0.0(prisma@5.0.0)
@@ -62,11 +62,11 @@ devDependencies:
     specifier: ^17.6.7
     version: 17.6.7
   '@durksteedjr/cli':
-    specifier: ^2.0.0
-    version: 2.0.0
+    specifier: ^2.0.1
+    version: 2.0.1
   '@durksteedjr/colors':
-    specifier: ^2.0.0
-    version: 2.0.0
+    specifier: ^2.0.1
+    version: 2.0.1
   '@next/eslint-plugin-next':
     specifier: ^13.4.12
     version: 13.4.12
@@ -470,11 +470,11 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
-  /@durksteedjr/cli@2.0.0:
-    resolution: {integrity: sha512-h7FNrpXp1WD/bQ5zHkFt09B1MWnzB6bJu8E41QjSNFg/0AJcVDanehK2Uq9PnFYKDT5MgHZmFWqqDk9t7CDvVg==}
+  /@durksteedjr/cli@2.0.1:
+    resolution: {integrity: sha512-jH8QUb9mOB1xLKquBThrlHcnJIGPmfozY6C9sAgC10nH8W79kl0fZg76rzJHU8mNXYEbUKpDWOt2uNv1L48P2g==}
     hasBin: true
     dependencies:
-      '@durksteedjr/colors': 2.0.0
+      '@durksteedjr/colors': 2.0.1
       chalk: 5.3.0
       commander: 11.0.0
       fs-extra: 11.1.1
@@ -482,15 +482,15 @@ packages:
       word-wrap: 1.2.5
     dev: true
 
-  /@durksteedjr/colors@2.0.0:
-    resolution: {integrity: sha512-o+idJZki1nKhBWxwH22nUcx4K6KcEMMFNHLP5PNNHj2COBuxNgkzVhAfPGxSAMZ0fYmS067Z2/uVZO7zYhEl/w==}
+  /@durksteedjr/colors@2.0.1:
+    resolution: {integrity: sha512-3l/xblHUd9V4ZFcENSUu1duF4xoszBzCqSEvqJxuirjWnVrvND99HroPwi/5nZ6NJoxV56kJacPCnZfWpXChwQ==}
 
-  /@durksteedjr/ui@2.0.1(@opentelemetry/api@1.1.0)(react@18.2.0):
-    resolution: {integrity: sha512-45dQZJQqcMkLdOQzlUllOAI69zcRayX6Y5W/3tVju+0xnBCKINGbEZ2zIcswvUPbnM6XVyDZgqd1jSCFvPu8FA==}
+  /@durksteedjr/ui@2.0.2(@opentelemetry/api@1.1.0)(react@18.2.0):
+    resolution: {integrity: sha512-LAp4mpLzF2OtW4hgM8gTA4T6Y5Clzf0RXa6ICl7vOQemDYBfnOHov88rLSxSpgJCuVq9jhAe9HAlUwyjJPNqCQ==}
     peerDependencies:
       react: '>=17'
     dependencies:
-      '@durksteedjr/colors': 2.0.0
+      '@durksteedjr/colors': 2.0.1
       clsx: 1.2.1
       next: 13.4.12(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0

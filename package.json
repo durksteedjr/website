@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "repository",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -39,7 +39,7 @@
     "typecheck": "pnpm contentlayer:build && pnpm tsc:typecheck"
   },
   "dependencies": {
-    "@durksteedjr/ui": "^2.0.1",
+    "@durksteedjr/ui": "^2.0.2",
     "@prisma/client": "5.0.0",
     "@tanstack/react-query": "^4.32.0",
     "clsx": "^2.0.0",
@@ -59,8 +59,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
-    "@durksteedjr/cli": "^2.0.0",
-    "@durksteedjr/colors": "^2.0.0",
+    "@durksteedjr/cli": "^2.0.1",
+    "@durksteedjr/colors": "^2.0.1",
     "@next/eslint-plugin-next": "^13.4.12",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
