@@ -28,7 +28,7 @@ logs.forEach((log) =>
 );
 ```
 
-Until running this code, there would be no way to see the breaking typo. With properly defined TypeScript types; however, this error can be easily detected during development:
+Until running this code, there would be no way to see the breaking typo; however, with properly defined TypeScript types this error can be easily detected during development:
 
 ```ts
 type Log {
@@ -53,11 +53,11 @@ logs.forEach((log) =>
 
 ### Next.js
 
-[Next.js](https://nextjs.org) is a popular framework built on top of React.js. Next.js offers built in web optimizations, a file-based router, and most importantly server-side rendering and static site generation. As of version 13, it even supports React.js's new [Server Components](https://nextjs.org/docs/getting-started/react-essentials#server-components). In addition, Next.js has tremendous TypeScript support. I chose Next.js because I can build with React.js while confident this website will have great performance and SEO optimization.
+[Next.js](https://nextjs.org) is a popular framework built on top of React.js. Next.js offers built in web optimizations, a file-based router, and, most importantly, server-side rendering and static site generation. As of version 13, it even supports React.js's new [Server Components](https://nextjs.org/docs/getting-started/react-essentials#server-components). In addition, Next.js has tremendous TypeScript support. I chose Next.js because I can build with React.js while confident this website will have great performance and SEO optimization.
 
 ### PlanetScale
 
-Tracking the view counts for each post requires a database connection. [PlanetScale](https://planetscale.com) is a serverless MySQL platform and managed solution for deploying, maintaining, and scaling databases. With PlanetScale, databases can be branched like code in a Git repository while offering isolated database copies to develop and test schema changes.
+Tracking the view counts for each post requires a database connection. [PlanetScale](https://planetscale.com) is a serverless MySQL platform and managed solution for deploying, maintaining, and scaling databases. With PlanetScale, databases can be branched like code in a git repository while offering isolated database copies to develop and test schema changes.
 
 ### Prisma
 
