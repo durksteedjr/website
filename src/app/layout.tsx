@@ -40,8 +40,8 @@ const Layout = ({ children }: LayoutProps) => (
         <Wrapper>
           <OverlayGradient />
           <OverlayGrid />
-          <Stack className="min-h-screen px-6 py-12 md:py-20">
-            <Container>
+          <Box className="px-6">
+            <Container className="flex min-h-screen flex-col py-12 md:py-20">
               <header>
                 <Stack>
                   <Flex className="items-center space-x-6 md:space-x-8">
@@ -131,7 +131,7 @@ const Layout = ({ children }: LayoutProps) => (
                 </Stack>
               </footer>
             </Container>
-          </Stack>
+          </Box>
         </Wrapper>
       </body>
     </html>
