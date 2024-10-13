@@ -1,26 +1,24 @@
 "use client";
 
+import { API_URL } from "../lib";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
-import { API_URL } from "../lib";
-
-export interface UseViewsProps {
+export type UseViewsProps = {
   slug: string;
-  type: "post";
-}
+  model: "travel";
+};
 
-export const useViews = ({ slug, type }: UseViewsProps) => {
-  const FETCH_API_URL = `${API_URL}/${type}s/${slug}/views`;
+export const useViews = ({ model = "travel", slug }: UseViewsProps) => {
+  const URL = `${API_URL}/${model}/${slug}/views`;
 
   return {
     mutation: useMutation({
-      mutationFn: () => fetch(FETCH_API_URL, { method: "POST" }),
-      mutationKey: [slug, type, "views"]
+      mutationFn: () => fetch(URL, { method: "POST" }),
+      mutationKey: [slug, model, "views"],
     }),
     query: useQuery({
-      queryFn: () =>
-        fetch(FETCH_API_URL).then((res) => res.json()),
-      queryKey: [slug, type, "views"]
-    })
+      queryFn: () => fetch(URL).then((res) => res.json()),
+      queryKey: [slug, model, "views"],
+    }),
   };
 };

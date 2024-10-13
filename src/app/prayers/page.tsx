@@ -1,29 +1,29 @@
-import { Box, H1, LinkCard, Stack } from "@durksteedjr/ui";
+import { Card, Text } from "../../components";
+import { getPrayers } from "../../utils";
+import { ohana } from "@ohanaui/react";
 import type { NextPage } from "next";
-
-import { SubTitle } from "../../components";
-import { getPrayers } from "../../lib";
+import NextLink from "next/link";
 
 export const metadata = {
   description: "Prayers",
-  title: "Prayers"
+  title: "Prayers",
 };
 
-const Page: NextPage = () => (
-  <Box>
-    <H1>Prayers</H1>
-    <Stack className="mt-8 space-y-4">
-      {getPrayers().map((prayer) => (
-        <LinkCard
-          href={`/prayers/${prayer.slug}`}
-          isOutlineArrowRight
-          key={prayer.title}
-        >
-          <SubTitle className="pr-8">{prayer.title}</SubTitle>
-        </LinkCard>
+const Page: NextPage = async () => (
+  <ohana.section className="flex flex-col space-y-8">
+    <Text asChild size="2xl">
+      <ohana.h1>Prayers</ohana.h1>
+    </Text>
+    <ohana.div className="flex flex-col space-y-4">
+      {(await getPrayers()).map((prayer) => (
+        <Card asChild isHover key={prayer.title}>
+          <Text asChild size="l">
+            <NextLink href={`/prayers/${prayer.slug}`}>{prayer.title}</NextLink>
+          </Text>
+        </Card>
       ))}
-    </Stack>
-  </Box>
+    </ohana.div>
+  </ohana.section>
 );
 
 export default Page;

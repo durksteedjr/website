@@ -1,32 +1,36 @@
 "use client";
 
+import { useViews } from "../hooks";
+import { Skeleton } from "./Skeleton";
+import { OhanaProps } from "@ohanaui/react";
+import { ohana } from "@ohanaui/react";
 import { useEffect } from "react";
 
-import { useViews } from "../hooks";
-import type { SubTextProps } from "./SubText";
-import { SubText } from "./SubText";
-
-export interface ViewsProps extends SubTextProps {
-  isPost?: boolean;
+export type ViewsProps = {
+  isMutation?: boolean;
+  model: "travel";
   slug: string;
-  type: "post";
-}
+} & Omit<OhanaProps<"span">, "children">;
 
 export const Views = ({
-  isPost = false,
+  isMutation = false,
   slug,
-  type,
+  model = "travel",
   ...props
 }: ViewsProps) => {
-  const { mutation, query } = useViews({ slug, type });
+  const { mutation, query } = useViews({ model, slug });
 
   useEffect(() => {
-    if (isPost) mutation.mutate();
+    if (isMutation) mutation.mutate();
   }, []);
 
+  if (!query.data) return <Skeleton className="!h-7 !w-16" />;
+
   return (
-    <SubText {...props}>
-      {query.data?.views ?? "..."} Views
-    </SubText>
+    <ohana.span {...props}>
+      {query.data?.views
+        ? `${query.data?.views} ${query.data?.views > 1 ? "Views" : "View"}`
+        : "..."}
+    </ohana.span>
   );
 };

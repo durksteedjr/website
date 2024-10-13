@@ -1,33 +1,28 @@
 "use client";
 
-import type { HoverProps } from "@durksteedjr/ui";
-import { Flex, Hover, Span } from "@durksteedjr/ui";
-import clsx from "clsx";
-import { HiArrowSmallUp } from "react-icons/hi2";
-
 import { useScroll } from "../hooks";
+import { Text } from "./Text";
+import { OhanaProps } from "@ohanaui/react";
+import clsx from "clsx";
 
-export interface BackToTopButtonProps extends HoverProps {}
+export type BackToTopButtonProps = OhanaProps<"button">;
 
 export const BackToTopButton = ({
   className,
   ...props
 }: BackToTopButtonProps) => {
-  const [scroll] = useScroll({ behavior: "smooth", top: 0 });
+  const { scroll } = useScroll();
 
   return (
-    <Hover {...props}>
-      <button onClick={() => scroll()} type="button">
-        <Flex
-          className={clsx(
-            "flex items-center space-x-1 md:space-x-3",
-            className
-          )}
-        >
-          <Span>Top</Span>
-          <HiArrowSmallUp />
-        </Flex>
+    <Text asChild isHover size="s">
+      <button
+        className={clsx("flex items-center space-x-1 md:space-x-3", className)}
+        onClick={() => scroll({ behavior: "smooth", top: 0 })}
+        type="button"
+        {...props}
+      >
+        Top
       </button>
-    </Hover>
+    </Text>
   );
 };

@@ -1,14 +1,13 @@
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
 }
 
 generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
+model Travel {
   id    String @id @default(cuid())
   slug  String @unique
   views Int    @default(0)
