@@ -24,7 +24,7 @@ export const Views = ({
     if (isMutation) mutation.mutate();
   }, []);
 
-  if (!query.data) return <Skeleton className="!h-7 !w-16" />;
+  if (!query.data) return <Skeleton className="h-6 !w-16 md:!h-7" />;
 
   return (
     <ohana.span {...props}>
