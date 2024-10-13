@@ -1,25 +1,30 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
+  "exclude": [".next", "node_modules"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "next.config.js",
+    "src/app/prayers/psalm-130-de-profundis/page.mdx"
+  ],
   "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
     "incremental": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": false
-  },
-  "exclude": ["node_modules"],
-  "include": [".next/types/**/*.ts", "src"]
+    ]
+  }
 }

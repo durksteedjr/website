@@ -1,31 +1,39 @@
-import { Box, H1, LinkCard, Stack } from "@durksteedjr/ui";
+import { Card, Text } from "../../components";
+import { getWorks } from "../../utils";
+import { ohana } from "@ohanaui/react";
 import type { NextPage } from "next";
-
-import { SubTitle, Text } from "../../components";
-import { getWorks } from "../../lib";
+import NextLink from "next/link";
 
 export const metadata = {
   description: "Work",
-  title: "Work"
+  title: "Work",
 };
 
 const Page: NextPage = () => (
-  <Box>
-    <H1>Work</H1>
-    <Stack className="mt-8 space-y-4">
+  <ohana.section className="flex flex-col space-y-8">
+    <Text asChild size="2xl">
+      <ohana.h1>Work</ohana.h1>
+    </Text>
+    <ohana.div className="flex flex-col space-y-4">
       {getWorks().map((work) => (
-        <LinkCard
-          href={work.href}
-          isOutlineArrowUpRight
+        <Card
+          asChild
+          className="flex flex-col space-y-0.5 md:space-y-1"
+          isHover
           key={work.title}
-          target="_blank"
         >
-          <SubTitle className="pr-8">{work.title}</SubTitle>
-          <Text>{work.description}</Text>
-        </LinkCard>
+          <NextLink href={work.url} target="_blank">
+            <Text asChild size="l">
+              <ohana.h2>{work.title}</ohana.h2>
+            </Text>
+            <Text isLight size="m">
+              {work.description}
+            </Text>
+          </NextLink>
+        </Card>
       ))}
-    </Stack>
-  </Box>
+    </ohana.div>
+  </ohana.section>
 );
 
 export default Page;

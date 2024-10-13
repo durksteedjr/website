@@ -1,31 +1,23 @@
-import {
-  Box,
-  Divider,
-  LinkCard,
-  Snippet,
-  Stack
-} from "@durksteedjr/ui";
-import type { NextPage } from "next";
-
-import { SubTitle } from "../components";
+import { Card, Divider, Snippet, Text } from "../components";
 import { links } from "../lib";
+import { ohana } from "@ohanaui/react";
+import type { NextPage } from "next";
+import NextLink from "next/link";
 
 const Page: NextPage = () => (
-  <Box>
-    <Snippet>npx @durksteedjr/cli@latest</Snippet>
-    <Divider className="my-8" />
-    <Stack className="space-y-4">
-      {[links.posts, links.prayers, links.work].map((link) => (
-        <LinkCard
-          href={link.href}
-          isOutlineArrowRight
-          key={link.text}
-        >
-          <SubTitle>{link.text}</SubTitle>
-        </LinkCard>
+  <ohana.section className="flex flex-col space-y-8">
+    <Snippet className="mt-4">npx @durksteedjr/cli@latest</Snippet>
+    <Divider />
+    <ohana.div className="flex flex-col space-y-4">
+      {[links.prayers, links.travel, links.work].map((link) => (
+        <Card asChild isHover key={link.text}>
+          <Text asChild size="l">
+            <NextLink href={link.href}>{link.text}</NextLink>
+          </Text>
+        </Card>
       ))}
-    </Stack>
-  </Box>
+    </ohana.div>
+  </ohana.section>
 );
 
 export default Page;

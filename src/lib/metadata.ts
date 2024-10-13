@@ -1,40 +1,37 @@
+import { BASE_URL, DESCRIPTION, TITLE } from "./constants";
 import type { Metadata } from "next";
 
-const description = "Catholic, Holistic";
-const title = "Durk Steed Jr. (@durksteedjr)";
-const url = "https://durksteedjr.com";
-
 export const metadata: Metadata = {
-  description,
-  metadataBase: new URL(url),
+  description: DESCRIPTION,
+  metadataBase: new URL(BASE_URL),
   title: {
-    default: title,
-    template: "%s | Durk Steed Jr."
+    default: TITLE,
+    template: "%s | Durk Steed Jr.",
   },
   openGraph: {
-    description,
+    description: DESCRIPTION,
     images: [
       {
         height: 1080,
         url: "/og.png",
-        width: 1920
-      }
+        width: 1920,
+      },
     ],
     locale: "en-US",
-    siteName: title,
-    title,
+    siteName: TITLE,
+    title: TITLE,
     type: "website",
-    url
+    url: BASE_URL,
   },
   robots: {
     index: true,
-    follow: true
+    follow: true,
   },
   twitter: {
     card: "summary_large_image",
-    title
+    title: TITLE,
   },
   icons: {
-    shortcut: "/favicon.ico"
-  }
+    shortcut: "/favicon.ico",
+  },
 };
