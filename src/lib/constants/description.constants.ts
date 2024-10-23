@@ -1,1 +1,1 @@
-export const DESCRIPTION = "Catholic, Holistic";
+export const DESCRIPTION = "Christian, Holistic";
